@@ -1,0 +1,78 @@
+:root {
+  --color-white: #ffffff;
+  --color-bg: #fffbf5;
+  --color-surface: #ffffff;
+  --color-surface-alt: #faf7ff;
+  --color-border: #ece7f5;
+
+  --color-cream-100: #fff7e8;
+  --color-cream-200: #ffeed2;
+
+  --color-primary-50: #f5f3ff;
+  --color-primary-100: #ede9fe;
+  --color-primary-200: #ddd6fe;
+  --color-primary-300: #c4b5fd;
+  --color-primary-400: #a78bfa;
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+  --color-primary-800: #5b21b6;
+  --color-primary-900: #4c1d95;
+  --color-primary-950: #2e1065;
+
+  --color-honey-50: #fffbeb;
+  --color-honey-100: #fef3c7;
+  --color-honey-200: #fde68a;
+  --color-honey-300: #fcd34d;
+  --color-honey-400: #fbbf24;
+  --color-honey-500: #f59e0b;
+  --color-honey-600: #d97706;
+  --color-honey-700: #b45309;
+
+  --color-ink: #241b35;
+  --color-ink-soft: #574e68;
+  --color-muted: #8e8798;
+
+  /* Roles de texto */
+  --text-heading: var(--color-primary-950);
+  --text-body: var(--color-ink-soft);
+  --text-muted: var(--color-muted);
+  --text-accent: var(--color-honey-600);
+  --text-on-primary: var(--color-white);
+  --text-on-accent: var(--color-primary-950);
+
+  /* Primario (interacción) */
+  --color-primary: var(--color-primary-700);
+  --color-primary-hover: var(--color-primary-900);
+  --color-primary-active: var(--color-primary-950);
+  --color-primary-soft: rgba(109, 40, 217, 0.1);
+
+  /* Acento (miel) */
+  --color-accent: var(--color-honey-400);
+  --color-accent-hover: var(--color-honey-600);
+  --color-accent-strong: var(--color-honey-600);
+  --color-accent-soft: rgba(251, 191, 36, 0.2);
+
+  /* Feedback y foco */
+  --color-success: #16a34a;
+  --color-warning: var(--color-honey-500);
+  --color-danger: #dc2626;
+  --color-info: #2563eb;
+  --color-ring: var(--color-honey-600);
+
+  --shadow-sm: 0 1px 2px rgba(76, 29, 149, 0.06);
+  --shadow-md: 0 4px 12px rgba(76, 29, 149, 0.08);
+  --shadow-lg: 0 12px 32px rgba(76, 29, 149, 0.12);
+  --shadow-glow: 0 8px 24px rgba(109, 40, 217, 0.25);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  --container: 1120px;
+}

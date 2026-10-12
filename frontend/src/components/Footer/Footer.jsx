@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
 
 const year = new Date().getFullYear()
@@ -5,11 +6,21 @@ const year = new Date().getFullYear()
 const columns = [
   {
     title: 'Menú',
-    links: ['Postres', 'Comida de casa', 'Bebidas', 'Promociones'],
+    links: [
+      { label: 'Postres', href: '#menu' },
+      { label: 'Comida de casa', href: '#menu' },
+      { label: 'Bebidas', href: '#menu' },
+      { label: 'Promociones', href: '#menu' },
+    ],
   },
   {
     title: 'La Miel',
-    links: ['Nuestra historia', 'Sucursales', 'Trabajá con nosotros', 'Contacto'],
+    links: [
+      { label: 'Nuestra historia', to: '/historia' },
+      { label: 'Sucursales', href: '#menu' },
+      { label: 'Trabajá con nosotros', href: '#menu' },
+      { label: 'Contacto', href: '#contacto' },
+    ],
   },
 ]
 
@@ -37,10 +48,16 @@ function Footer() {
                 <h4 className={styles.colTitle}>{column.title}</h4>
                 <ul className={styles.list}>
                   {column.links.map((link) => (
-                    <li key={link}>
-                      <a className={styles.link} href="#menu">
-                        {link}
-                      </a>
+                    <li key={link.label}>
+                      {link.to ? (
+                        <Link className={styles.link} to={link.to}>
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a className={styles.link} href={link.href}>
+                          {link.label}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>

@@ -4,8 +4,16 @@
 
 .hero {
   background:
-    radial-gradient(120% 100% at 80% 0%, rgba(251, 191, 36, 0.18) 0%, transparent 50%),
-    linear-gradient(180deg, var(--color-primary-950) 0%, var(--color-primary-900) 100%);
+    radial-gradient(
+      120% 100% at 80% 0%,
+      rgba(251, 191, 36, 0.18) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      var(--color-primary-950) 0%,
+      var(--color-primary-900) 100%
+    );
   color: var(--color-white);
   padding: 96px 24px 80px;
   text-align: center;
@@ -22,6 +30,7 @@
 
 .title {
   max-width: 720px;
+  color: var(--color-white);
   margin: 0 auto;
   font-family: var(--font-display);
   font-weight: 700;
@@ -41,6 +50,20 @@
   max-width: var(--container);
   margin: 0 auto;
   padding: 72px 24px 48px;
+}
+
+.figure {
+  float: right;
+  width: 44%;
+  max-width: 460px;
+  margin: 12px 0 20px 32px;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
 }
 
 .bodyTitle {
@@ -134,6 +157,13 @@
 @media (max-width: 820px) {
   .hero {
     padding: 72px 20px 64px;
+  }
+
+  .figure {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 20px;
   }
 
   .timeline {

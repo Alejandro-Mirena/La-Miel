@@ -33,6 +33,13 @@ function Historia() {
 
       <section className={styles.body}>
         <h2 className={styles.bodyTitle}>Cómo empezó todo</h2>
+        <figure className={styles.figure}>
+          <img
+            className={styles.banner}
+            src="/banner-Historia.jpg"
+            alt="Un rincón de La Miel, entre miel y pan recién horneado"
+          />
+        </figure>
         <p className={styles.paragraph}>
           En 2018, abrimos un puesto en la feria del barrio con un solo objetivo:
           vender la miel que producía la familia y los cheescakes de la abuela.
@@ -48,6 +55,19 @@ function Historia() {
           Hoy La Miel tiene cocina propia, postres de temporada y un sistema de
           reservas para que nadie se quede sin mesa. Pero el mandato sigue siendo
           el mismo: todo lo que servimos tiene que saber a hogar.
+        </p>
+        <p className={styles.paragraph}>
+          El nombre tampoco fue casualidad. Lo eligió la abuela mayor después de
+          pasear por la feria el primer día: "si el puesto huele a miel y a pan
+          recién horneado, nadie se va rápido". Y como nunca se fue nadie, quedó
+          <span className={styles.eyebrow}> La Miel.</span>
+        </p>
+        <p className={styles.paragraph}>
+          Cada fin de semana aprendíamos algo nuevo: qué sabores pedía el barrio,
+          cuánto esperaba la gente sentirse en casa, cómo un postre bien servido
+          se convierte en recuerdo. Esa escuela de domingos es la que seguimos
+          usando hoy, con platos que cambian según la estación y una mesa que se
+          reserva para que nadie se quede afuera.
         </p>
       </section>
 

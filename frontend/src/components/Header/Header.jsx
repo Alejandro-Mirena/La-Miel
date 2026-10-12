@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import styles from './Header.module.css'
-import { DropletIcon } from './icons'
 
 const links = [
   { label: 'Inicio', href: '#inicio' },
@@ -19,7 +18,7 @@ function Header() {
       <div className={styles.wrap}>
         <a className={styles.logo} href="#inicio" onClick={close}>
           <span className={styles.logoIcon}>
-            <DropletIcon size={20} />
+            <img className={styles.logoImg} src="/favicon.png" alt="" />
           </span>
           La Miel
         </a>

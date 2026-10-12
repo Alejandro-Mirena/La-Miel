@@ -1,5 +1,4 @@
 import styles from './Footer.module.css'
-import { DropletIcon } from './icons'
 
 const year = new Date().getFullYear()
 
@@ -22,7 +21,7 @@ function Footer() {
           <div className={styles.brand}>
             <a className={styles.logo} href="#inicio">
               <span className={styles.logoIcon}>
-                <DropletIcon size={20} />
+                <img className={styles.logoImg} src="/favicon.png" alt="" />
               </span>
               La Miel
             </a>

@@ -59,8 +59,8 @@ function Inicio() {
         </div>
         <img
           className={styles.aboutImg}
-          src="/banner-Historia.jpg"
-          alt="Interior cálido de La Miel con postres caseros"
+          src="/Inicio-imagen.jpg"
+          alt="venta de miel en la feria del barrio"
         />
       </section>
     </div>

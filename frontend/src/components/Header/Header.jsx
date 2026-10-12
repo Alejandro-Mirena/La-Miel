@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Header.module.css'
 
 const links = [
-  { label: 'Inicio', href: '#inicio' },
+  { label: 'Inicio', to: '/' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Menú', href: '#menu' },
   { label: 'Contacto', href: '#contacto' },
@@ -16,18 +17,24 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.wrap}>
-        <a className={styles.logo} href="#inicio" onClick={close}>
+        <Link className={styles.logo} to="/" onClick={close}>
           <span className={styles.logoIcon}>
             <img className={styles.logoImg} src="/favicon.png" alt="" />
           </span>
           La Miel
-        </a>
+        </Link>
 
         <nav className={`${styles.nav} ${open ? styles.navOpen : ''}`} aria-label="Principal">
           {links.map((link) => (
-            <a key={link.href} className={styles.link} href={link.href} onClick={close}>
-              {link.label}
-            </a>
+            link.to ? (
+              <Link key={link.label} className={styles.link} to={link.to} onClick={close}>
+                {link.label}
+              </Link>
+            ) : (
+              <a key={link.label} className={styles.link} href={link.href} onClick={close}>
+                {link.label}
+              </a>
+            )
           ))}
           <a className={`${styles.cta} ${styles.ctaPanel}`} href="#reserva" onClick={close}>
             Reservar

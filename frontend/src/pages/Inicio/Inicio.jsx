@@ -4,6 +4,7 @@ import About from './sections/About/About'
 import Dishes from './sections/Dishes/Dishes'
 import Promos from './sections/Promos/Promos'
 import Resenas from './sections/Resenas/Resenas'
+import Ubicacion from './sections/Ubicacion/Ubicacion'
 import styles from './Inicio.module.css'
 
 function Inicio() {
@@ -15,6 +16,7 @@ function Inicio() {
       <Dishes />
       <Promos />
       <Resenas />
+      <Ubicacion />
     </div>
   )
 }

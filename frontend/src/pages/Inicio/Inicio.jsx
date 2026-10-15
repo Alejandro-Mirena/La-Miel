@@ -3,6 +3,7 @@ import Badges from './sections/Badges/Badges'
 import About from './sections/About/About'
 import Dishes from './sections/Dishes/Dishes'
 import Promos from './sections/Promos/Promos'
+import Resenas from './sections/Resenas/Resenas'
 import styles from './Inicio.module.css'
 
 function Inicio() {
@@ -13,6 +14,7 @@ function Inicio() {
       <About />
       <Dishes />
       <Promos />
+      <Resenas />
     </div>
   )
 }

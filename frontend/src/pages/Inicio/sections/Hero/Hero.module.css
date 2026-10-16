@@ -11,7 +11,7 @@
       var(--color-primary-900) 100%
     );
   color: var(--color-white);
-  padding: 96px 24px 80px;
+  padding: 72px 24px 60px;
 }
 
 .heroInner {
@@ -34,7 +34,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
   line-height: 1.1;
 }
 
@@ -91,13 +91,13 @@
 
 @media (max-width: 820px) {
   .hero {
-    padding: 72px 20px 64px;
+    padding: 56px 20px 48px;
   }
 }
 
 @media (max-width: 560px) {
   .hero {
-    padding: 56px 18px 48px;
+    padding: 44px 18px 40px;
   }
 
   .subtitle {

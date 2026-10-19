@@ -25,12 +25,14 @@ export const platos = [
     nombre: 'Flan casero con dulce de leche',
     descripcion: 'De la receta de siempre, con caramelo suave.',
     precio: '$3.200',
+    imagen: '/Flan-de-miel.jpg',
   },
   {
     categoria: 'postres',
     nombre: 'Budín de miel',
     descripcion: 'Recién horneado, ideal para acompañar el café.',
     precio: '$2.800',
+    imagen: '/Budin.jpg',
   },
   {
     categoria: 'comida',
@@ -44,12 +46,14 @@ export const platos = [
     nombre: 'Milanesa con puré',
     descripcion: 'Empanado fino y crujiente, con puré de papas casero.',
     precio: '$6.200',
+    imagen: '/Milanesa_pure.jpg',
   },
   {
     categoria: 'comida',
     nombre: 'Empanadas de carne',
     descripcion: 'Al horno, masa fina y relleno jugoso. Media docena.',
     precio: '$4.900',
+    imagen: '/Empanadas.jpg',
   },
   {
     categoria: 'comida',
@@ -57,6 +61,7 @@ export const platos = [
     descripcion: 'De estación, con masa casera.',
     precio: '$4.300',
     tags: ['Veggie'],
+    imagen: '/Tarta-Verduras.jpg',
   },
   {
     categoria: 'bebidas',
@@ -70,17 +75,20 @@ export const platos = [
     nombre: 'Café de especialidad',
     descripcion: 'Grano de la zona, en cualquiera de sus formas.',
     precio: '$1.800',
+    imagen: '/Cafe-especialidad.jpg',
   },
   {
     categoria: 'bebidas',
     nombre: 'Submarino',
     descripcion: 'Leche caliente con chocolate y un toque de miel.',
     precio: '$2.200',
+    imagen: '/Submarino-Cafe.jpg',
   },
   {
     categoria: 'bebidas',
     nombre: 'Té con miel',
     descripcion: 'Infusión a elección, endulzada con miel de la casa.',
     precio: '$1.600',
+    imagen: '/Te-Miel.jpg',
   },
 ]

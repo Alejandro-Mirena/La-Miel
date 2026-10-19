@@ -4,7 +4,7 @@ import styles from './Header.module.css'
 
 const links = [
   { label: 'Inicio', to: '/' },
-  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Nosotros', to: '/nosotros' },
   { label: 'Menú', href: '#menu' },
   { label: 'Contacto', href: '#contacto' },
 ]

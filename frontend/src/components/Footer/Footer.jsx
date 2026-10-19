@@ -16,7 +16,7 @@ const columns = [
   {
     title: 'La Miel',
     links: [
-      { label: 'Nuestra historia', to: '/historia' },
+      { label: 'Nuestra historia', to: '/nosotros#historia' },
       { label: 'Sucursales', href: '#menu' },
       { label: 'Trabajá con nosotros', href: '#menu' },
       { label: 'Contacto', href: '#contacto' },
@@ -26,7 +26,7 @@ const columns = [
 
 function Footer() {
   return (
-    <footer id="contacto" className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.wrap}>
         <div className={styles.top}>
           <div className={styles.brand}>

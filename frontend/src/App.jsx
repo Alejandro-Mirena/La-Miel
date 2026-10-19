@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Inicio from './pages/Inicio/Inicio'
-import Historia from './pages/Historia/Historia'
+import Nosotros from './pages/Nosotros/Nosotros'
 import styles from './App.module.css'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <main className={styles.content}>
         <Routes>
           <Route path="/" element={<Inicio />} />
-          <Route path="/historia" element={<Historia />} />
+          <Route path="/nosotros" element={<Nosotros />} />
         </Routes>
       </main>
       <Footer />

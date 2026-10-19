@@ -15,7 +15,9 @@ function About() {
           Vienes por un postre y te quedas por el clima: mesas grandes para
           compartir, café de especialidad y la atención de siempre.
         </p>
-
+        <Link className={styles.aboutLink} to="/nosotros#historia">
+          Conoce nuestra historia →
+        </Link>
       </div>
       <img
         className={styles.aboutImg}

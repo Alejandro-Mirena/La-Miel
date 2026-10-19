@@ -5,7 +5,7 @@ import styles from './Header.module.css'
 const links = [
   { label: 'Inicio', to: '/' },
   { label: 'Nosotros', to: '/nosotros' },
-  { label: 'Menú', href: '#menu' },
+  { label: 'Menú', to: '/menu' },
   { label: 'Contacto', href: '#contacto' },
 ]
 

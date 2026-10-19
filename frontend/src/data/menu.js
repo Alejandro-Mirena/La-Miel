@@ -1,0 +1,86 @@
+export const categorias = [
+  { id: 'todo', label: 'Todo' },
+  { id: 'postres', label: 'Postres' },
+  { id: 'comida', label: 'Comida de casa' },
+  { id: 'bebidas', label: 'Bebidas' },
+]
+
+export const platos = [
+  {
+    categoria: 'postres',
+    nombre: 'Cheesecake de la abuela',
+    descripcion: 'Receta original, con miel de la casa y frutos rojos.',
+    precio: '$4.500',
+    imagen: '/cheescake-imagen.jpg',
+  },
+  {
+    categoria: 'postres',
+    nombre: 'Torta de miel y nueces',
+    descripcion: 'Húmeda y especiada, con nueces del valle.',
+    precio: '$4.200',
+    imagen: '/torta-miel-y-nueces.jpg',
+  },
+  {
+    categoria: 'postres',
+    nombre: 'Flan casero con dulce de leche',
+    descripcion: 'De la receta de siempre, con caramelo suave.',
+    precio: '$3.200',
+  },
+  {
+    categoria: 'postres',
+    nombre: 'Budín de miel',
+    descripcion: 'Recién horneado, ideal para acompañar el café.',
+    precio: '$2.800',
+  },
+  {
+    categoria: 'comida',
+    nombre: 'Guiso de la casa',
+    descripcion: 'Cocinado lento, con pan recién horneado.',
+    precio: '$5.800',
+    imagen: '/Guiso-de-la-casa.jpg',
+  },
+  {
+    categoria: 'comida',
+    nombre: 'Milanesa con puré',
+    descripcion: 'Empanado fino y crujiente, con puré de papas casero.',
+    precio: '$6.200',
+  },
+  {
+    categoria: 'comida',
+    nombre: 'Empanadas de carne',
+    descripcion: 'Al horno, masa fina y relleno jugoso. Media docena.',
+    precio: '$4.900',
+  },
+  {
+    categoria: 'comida',
+    nombre: 'Tarta de verduras',
+    descripcion: 'De estación, con masa casera.',
+    precio: '$4.300',
+    tags: ['Veggie'],
+  },
+  {
+    categoria: 'bebidas',
+    nombre: 'Limonada de miel y jengibre',
+    descripcion: 'Bien fría, con un toque de menta fresca.',
+    precio: '$2.500',
+    imagen: '/Limonada-De-La-Casa.jpg',
+  },
+  {
+    categoria: 'bebidas',
+    nombre: 'Café de especialidad',
+    descripcion: 'Grano de la zona, en cualquiera de sus formas.',
+    precio: '$1.800',
+  },
+  {
+    categoria: 'bebidas',
+    nombre: 'Submarino',
+    descripcion: 'Leche caliente con chocolate y un toque de miel.',
+    precio: '$2.200',
+  },
+  {
+    categoria: 'bebidas',
+    nombre: 'Té con miel',
+    descripcion: 'Infusión a elección, endulzada con miel de la casa.',
+    precio: '$1.600',
+  },
+]

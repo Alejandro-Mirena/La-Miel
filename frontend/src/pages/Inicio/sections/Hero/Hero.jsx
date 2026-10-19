@@ -16,9 +16,9 @@ function Hero() {
           <Link className={styles.btnPrimary} to="/#reserva">
             Reservar mesa
           </Link>
-          <a className={styles.btnGhost} href="#menu">
+          <Link className={styles.btnGhost} to="/menu">
             Ver el menú
-          </a>
+          </Link>
         </div>
         <p className={styles.meta}>Abierto hoy hasta las 23 h · Valencia, Venezuela</p>
       </div>

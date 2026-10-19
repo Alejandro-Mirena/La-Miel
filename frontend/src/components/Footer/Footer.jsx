@@ -7,18 +7,18 @@ const columns = [
   {
     title: 'Menú',
     links: [
-      { label: 'Postres', href: '#menu' },
-      { label: 'Comida de casa', href: '#menu' },
-      { label: 'Bebidas', href: '#menu' },
-      { label: 'Promociones', href: '#menu' },
+      { label: 'Postres', to: '/menu#postres' },
+      { label: 'Comida de casa', to: '/menu#comida' },
+      { label: 'Bebidas', to: '/menu#bebidas' },
+      { label: 'Promociones', to: '/menu#promociones' },
     ],
   },
   {
     title: 'La Miel',
     links: [
       { label: 'Nuestra historia', to: '/nosotros#historia' },
-      { label: 'Sucursales', href: '#menu' },
-      { label: 'Trabajá con nosotros', href: '#menu' },
+      { label: 'Sucursales', to: '/#contacto' },
+      { label: 'Trabajá con nosotros', to: '/#contacto' },
       { label: 'Contacto', href: '#contacto' },
     ],
   },

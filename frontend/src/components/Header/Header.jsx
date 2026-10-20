@@ -6,7 +6,7 @@ const links = [
   { label: 'Inicio', to: '/' },
   { label: 'Nosotros', to: '/nosotros' },
   { label: 'Menú', to: '/menu' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Contacto', href: '/#contacto' },
 ]
 
 function Header() {

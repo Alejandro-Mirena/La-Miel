@@ -19,7 +19,7 @@ const columns = [
       { label: 'Nuestra historia', to: '/nosotros#historia' },
       { label: 'Sucursales', to: '/#contacto' },
       { label: 'Trabajá con nosotros', to: '/#contacto' },
-      { label: 'Contacto', href: '#contacto' },
+      { label: 'Contacto', href: '/#contacto' },
     ],
   },
 ]

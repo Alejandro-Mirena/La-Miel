@@ -136,7 +136,7 @@ function TrabajaConNosotros() {
       </section>
 
       <section className={styles.cta}>
-        <h2 className={styles.ctaTitle}>¿Tenés dudas?</h2>
+        <h2 className={styles.ctaTitle}>¿Tienes dudas?</h2>
         <p className={styles.ctaText}>
           Puedes pasar por el local de Martes a Domingo con tu CV impreso.
         </p>

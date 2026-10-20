@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { categorias, platos } from '../../data/menu'
 import Promos from '../../components/Promos/Promos'
@@ -10,15 +10,22 @@ function Menu() {
   const activa = categorias.some((categoria) => categoria.id === hashId)
     ? hashId
     : 'todo'
-  const scrolled = useRef(false)
 
   useEffect(() => {
-    if (scrolled.current) return
-    scrolled.current = true
     if (!location.hash) return
     const target =
-      document.getElementById(hashId) ?? document.getElementById('menu')
-    target?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      document.getElementById(hashId) === 'promociones'
+        ? document.getElementById('promociones')
+        : document.getElementById('menu')
+    if (target) {
+      const headerOffset = 96
+      const elementPosition = target.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      })
+    }
   }, [location.hash, hashId])
 
   const visibles =

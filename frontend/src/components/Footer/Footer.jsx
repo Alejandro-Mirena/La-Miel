@@ -18,7 +18,7 @@ const columns = [
     links: [
       { label: 'Nuestra historia', to: '/nosotros#historia' },
       { label: 'Sucursales', to: '/#contacto' },
-      { label: 'Trabajá con nosotros', to: '/#contacto' },
+      { label: 'Trabaja con nosotros', to: '/trabaja-con-nosotros' },
       { label: 'Contacto', href: '/#contacto' },
     ],
   },

@@ -7,28 +7,28 @@ const dishes = [
     category: 'Postre',
     name: 'Cheesecake de la abuela',
     description: 'Receta original, con miel de la casa y frutos rojos.',
-    price: '$4.500',
+    price: '$5,11',
   },
   {
     image: '/torta-miel-y-nueces.jpg',
     category: 'Postre',
     name: 'Torta de miel y nueces',
     description: 'Húmeda y especiada, con nueces del valle.',
-    price: '$4.200',
+    price: '$4,77',
   },
   {
     image: '/Guiso-de-la-casa.jpg',
     category: 'Comida de casa',
     name: 'Guiso de la casa',
     description: 'Cocinado lento, con pan recién horneado.',
-    price: '$5.800',
+    price: '$6,58',
   },
   {
     image: '/Limonada-De-La-Casa.jpg',
     category: 'Bebidas',
     name: 'Limonada de miel y jengibre',
     description: 'Bien fría, con un toque de menta fresca.',
-    price: '$2.500',
+    price: '$2,84',
   },
 ]
 

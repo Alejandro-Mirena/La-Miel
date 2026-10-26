@@ -167,7 +167,7 @@ function Nosotros() {
         <p className={styles.ctaText}>
           Pasa por el local o reserva tu mesa. El café ya está calentando.
         </p>
-        <Link className={styles.ctaBtn} to="/#reserva">
+        <Link className={styles.ctaBtn} to="/reservar">
           Reservar mesa
         </Link>
       </section>

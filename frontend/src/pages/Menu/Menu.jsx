@@ -144,7 +144,7 @@ function Menu() {
         <p className={styles.ctaText}>
           Te esperamos con la carta del día y el café listo.
         </p>
-        <Link className={styles.ctaBtn} to="/#reserva">
+        <Link className={styles.ctaBtn} to="/reservar">
           Reservar mesa
         </Link>
       </section>

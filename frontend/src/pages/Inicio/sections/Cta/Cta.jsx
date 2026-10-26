@@ -12,7 +12,7 @@ function Cta() {
           pedir para llevar.
         </p>
         <div className={styles.actions}>
-          <Link className={styles.btnPrimary} to="/#reserva">
+          <Link className={styles.btnPrimary} to="/reservar">
             Reservar mesa
           </Link>
           <Link className={styles.btnGhost} to="/menu">

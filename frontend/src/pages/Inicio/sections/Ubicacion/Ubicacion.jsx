@@ -103,7 +103,7 @@ function Ubicacion() {
             ¿Reservas o quieres hacer un pedido? Escribenos o llamanos.
           </p>
           <div className={styles.actions}>
-            <Link className={styles.btnPrimary} to="/#reserva">
+            <Link className={styles.btnPrimary} to="/reservar">
               Reservar mesa
             </Link>
             <a className={styles.btnGhost} href={`tel:${telefono.replace(/\s/g, '')}`}>

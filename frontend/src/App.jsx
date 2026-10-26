@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 import Inicio from './pages/Inicio/Inicio'
 import Nosotros from './pages/Nosotros/Nosotros'
 import Menu from './pages/Menu/Menu'
+import Reserva from './pages/Reserva/Reserva'
 import TrabajaConNosotros from './pages/TrabajaConNosotros/TrabajaConNosotros'
 import styles from './App.module.css'
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Inicio />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/reservar" element={<Reserva />} />
           <Route path="/trabaja-con-nosotros" element={<TrabajaConNosotros />} />
         </Routes>
       </main>

@@ -36,14 +36,14 @@ function Header() {
               </a>
             )
           ))}
-          <a className={`${styles.cta} ${styles.ctaPanel}`} href="#reserva" onClick={close}>
+          <Link className={`${styles.cta} ${styles.ctaPanel}`} to="/reservar" onClick={close}>
             Reservar
-          </a>
+          </Link>
         </nav>
 
-        <a className={styles.cta} href="#reserva" onClick={close}>
+        <Link className={styles.cta} to="/reservar" onClick={close}>
           Reservar
-        </a>
+        </Link>
 
         <button
           type="button"

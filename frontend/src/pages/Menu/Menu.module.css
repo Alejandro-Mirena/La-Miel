@@ -169,13 +169,58 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-.thumb {
+/* Botón que envuelve la miniatura (clickeable para ampliar) */
+.thumbBtn {
+  position: relative;
   flex-shrink: 0;
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
+  width: 96px;
+  height: 96px;
+  padding: 0;
+  border: 0;
   border-radius: var(--radius-md);
+  background: none;
+  cursor: zoom-in;
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
+}
+
+.thumbBtn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.thumbBtn:hover .thumb {
+  transform: scale(1.08);
+}
+
+/* Iconito de lupa que aparece al pasar el mouse */
+.zoomIcon {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--color-white);
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.thumbBtn:hover .zoomIcon,
+.thumbBtn:focus-visible .zoomIcon {
+  opacity: 1;
 }
 
 .itemBody {
@@ -260,6 +305,105 @@
   background: var(--color-primary-hover);
 }
 
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000; /* por encima del header sticky */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+  animation: fadeIn 0.2s ease;
+}
+
+.lightboxFigure {
+  position: relative;
+  margin: 0;
+  max-width: min(900px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  overflow: hidden;
+  cursor: default;
+  animation: zoomIn 0.25s ease;
+}
+
+.lightboxImg {
+  display: block;
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  background: #000;
+}
+
+.lightboxCaption {
+  padding: 18px 22px 22px;
+}
+
+.lightboxName {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--text-heading);
+}
+
+.lightboxPrice {
+  margin-left: 12px;
+  font-weight: 700;
+  color: var(--color-honey-700);
+}
+
+.lightboxDesc {
+  margin: 8px 0 0;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  color: var(--color-white);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lightboxClose:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------- Responsive ---------- */
 @media (max-width: 820px) {
   .hero {
     padding: 56px 20px 48px;
@@ -298,9 +442,14 @@
     gap: 14px;
   }
 
-  .thumb {
-    width: 52px;
-    height: 52px;
+  .thumbBtn {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* En móvil no hay hover: dejamos la lupa siempre visible */
+  .zoomIcon {
+    opacity: 1;
   }
 
   .itemTop {
@@ -309,5 +458,9 @@
 
   .dots {
     display: none;
+  }
+
+  .lightbox {
+    padding: 12px;
   }
 }

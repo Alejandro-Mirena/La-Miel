@@ -7,6 +7,7 @@ import Nosotros from './pages/Nosotros/Nosotros'
 import Menu from './pages/Menu/Menu'
 import Reserva from './pages/Reserva/Reserva'
 import TrabajaConNosotros from './pages/TrabajaConNosotros/TrabajaConNosotros'
+import NotFound from './pages/NotFound/NotFound'
 import styles from './App.module.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/reservar" element={<Reserva />} />
           <Route path="/trabaja-con-nosotros" element={<TrabajaConNosotros />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

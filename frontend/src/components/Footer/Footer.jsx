@@ -30,7 +30,7 @@ function Footer() {
       <div className={styles.wrap}>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <a className={styles.logo} href="#inicio">
+            <a className={styles.logo} href="/">
               <span className={styles.logoIcon}>
                 <img className={styles.logoImg} src="/favicon.png" alt="" />
               </span>

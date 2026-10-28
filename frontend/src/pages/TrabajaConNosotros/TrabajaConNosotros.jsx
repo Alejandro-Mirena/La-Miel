@@ -122,8 +122,8 @@ function TrabajaConNosotros() {
                   placeholder="Tu nombre completo"
                   required
                   maxLength={40}
-                  pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+"
-                  title="Solo se permiten letras y espacios"
+                  value={formData.nombre}
+                  onChange={handleChange}
                 />
               </label>
               <label className={styles.field}>
@@ -140,6 +140,8 @@ function TrabajaConNosotros() {
                     pattern="[0-9]{11}"
                     maxLength={11}
                     title="Ingresa 11 números sin el +58 (ej. 4121234567)"
+                    value={formData.telefono}
+                    onChange={handleChange}
                   />
                 </div>
               </label>
@@ -152,18 +154,18 @@ function TrabajaConNosotros() {
                   placeholder="tu@correo.com"
                   required
                   maxLength={80}
-                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                  title="Ingresa un correo válido (ej. nombre@dominio.com)"
+                  value={formData.correo}
+                  onChange={handleChange}
                 />
               </label>
               <label className={styles.field}>
                 <span className={styles.label}>Puesto al que te postulas</span>
-                <select className={styles.select} name="puesto" required>
+                <select className={styles.select} name="puesto" required value={formData.puesto} onChange={handleChange}>
                   <option value="">Seleccionar</option>
-                  <option value="cocinero">Cocinero/a</option>
-                  <option value="cajero">Cajero/a / Atención al cliente</option>
-                  <option value="repostero">Repostero/a</option>
-                  <option value="otro">Otro</option>
+                  <option value="Cocinero/a">Cocinero/a</option>
+                  <option value="Cajero/a / Atención al cliente">Cajero/a / Atención al cliente</option>
+                  <option value="Repostero/a">Repostero/a</option>
+                  <option value="Otro">Otro</option>
                 </select>
               </label>
             </div>
@@ -175,6 +177,8 @@ function TrabajaConNosotros() {
                 name="mensaje"
                 placeholder="Experiencia, disponibilidad, horarios, etc."
                 maxLength={500}
+                value={formData.mensaje}
+                onChange={handleChange}
               />
             </label>
             {errorEnvio && (
@@ -182,7 +186,7 @@ function TrabajaConNosotros() {
                 {errorEnvio}
               </p>
             )}
-            <button className={styles.submit} type="submit" disabled={enviando}>
+            <button className={styles.submit} type="submit" >
               {enviando ? 'Enviando...' : 'Enviar postulación'}
             </button>
 

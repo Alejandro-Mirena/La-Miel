@@ -50,7 +50,15 @@
   margin: 0 auto;
   padding: 72px 24px 40px;
 }
-
+.nextButton {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
 .sectionHead {
   text-align: center;
   margin: 0 0 40px;
@@ -249,8 +257,17 @@
   color: var(--color-white);
   font-size: 1rem;
   font-weight: 600;
-  cursor: not-allowed;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.submit:disabled {
   opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .note {

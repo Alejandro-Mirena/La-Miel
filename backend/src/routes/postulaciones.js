@@ -1,23 +1,31 @@
 import { prisma } from '../lib/prisma.js'
 
+const postulacionSchema = {
+  body: {
+    type: 'object',
+    required: ['nombre', 'telefono', 'correo', 'puesto'],
+    additionalProperties: false,
+    properties: {
+      nombre: { type: 'string', minLength: 1, maxLength: 100 },
+      telefono: { type: 'string', minLength: 7, maxLength: 20 },
+      correo: { type: 'string', format: 'email', maxLength: 80 },
+      puesto: { type: 'string', minLength: 1 },
+      mensaje: { type: 'string', maxLength: 500 },
+    },
+  },
+}
+
 export default async function postulacionesRoutes(fastify, opts) {
-  fastify.post('/postulaciones', async (request, reply) => {
+  fastify.post('/postulaciones', { schema: postulacionSchema }, async (request, reply) => {
     try {
       const { nombre, telefono, correo, puesto, mensaje } = request.body
-
-      if (!nombre || !telefono || !correo || !puesto) {
-        return reply.code(400).send({
-          success: false,
-          message: 'Faltan campos obligatorios para enviar la postulación.',
-        })
-      }
 
       const postulacion = await prisma.postulacion.create({
         data: {
           nombre: nombre.trim(),
           telefono: telefono.trim(),
           correo: correo.trim().toLowerCase(),
-          puesto,
+          puesto: puesto.trim(),
           mensaje: mensaje?.trim() || null,
         },
       })

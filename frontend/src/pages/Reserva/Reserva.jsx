@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { notificarError, notificarExito } from '../../components/Toast/notificaciones'
 import ReservaConfirmacion from '../Confirmaciones/ReservaConfirmacion'
 import styles from './Reserva.module.css'
 
@@ -23,7 +23,6 @@ function Reserva() {
   const [errorHorario, setErrorHorario] = useState('')
   const [enviando, setEnviando] = useState(false)
   const [exito, setExito] = useState(false)
-  const [errorEnvio, setErrorEnvio] = useState('')
   const fechaMinima = obtenerFechaLocal()
   const [reserva, setReserva] = useState({
     sucursal: '',
@@ -99,16 +98,15 @@ function Reserva() {
 
   const retroceder = () => {
     setErrorHorario('')
-    setErrorEnvio('')
     setPaso((actual) => Math.max(actual - 1, 0))
   }
 
   const enviarReserva = async () => {
-    setErrorEnvio('')
     setEnviando(true)
 
     try {
-      const respuesta = await fetch('http://localhost:3000/reservas', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+      const respuesta = await fetch(`${apiUrl}/reservas`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -122,9 +120,10 @@ function Reserva() {
         throw new Error(datos.message || 'No se pudo enviar la reserva')
       }
 
+      notificarExito('Reserva enviada correctamente')
       setExito(true)
     } catch (error) {
-      setErrorEnvio(error.message)
+      notificarError(error.message)
     } finally {
       setEnviando(false)
     }
@@ -354,9 +353,6 @@ function Reserva() {
                       </div>
                     )}
                   </dl>
-                  {errorEnvio && (
-                    <p className={styles.validationError}>{errorEnvio}</p>
-                  )}
                   <p className={styles.notice}>
                     Al confirmar se enviará tu solicitud directamente al equipo de La Miel.
                   </p>

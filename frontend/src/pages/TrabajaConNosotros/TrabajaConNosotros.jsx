@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { notificarError, notificarExito } from '../../components/Toast/notificaciones'
 import TrabajaConfirmacion from '../Confirmaciones/TrabajaConfirmacion'
 import styles from './TrabajaConNosotros.module.css'
 
@@ -31,7 +32,6 @@ function TrabajaConNosotros() {
   })
   const [enviando, setEnviando] = useState(false)
   const [exito, setExito] = useState(false)
-  const [errorEnvio, setErrorEnvio] = useState('')
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -40,11 +40,11 @@ function TrabajaConNosotros() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    setErrorEnvio('')
     setEnviando(true)
 
     try {
-      const respuesta = await fetch('http://localhost:3000/postulaciones', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+      const respuesta = await fetch(`${apiUrl}/postulaciones`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,9 +58,10 @@ function TrabajaConNosotros() {
         throw new Error(datos.message || 'No se pudo enviar la postulación')
       }
 
+      notificarExito('Postulación enviada correctamente')
       setExito(true)
     } catch (error) {
-      setErrorEnvio(error.message)
+      notificarError(error.message)
     } finally {
       setEnviando(false)
     }
@@ -181,11 +182,6 @@ function TrabajaConNosotros() {
                 onChange={handleChange}
               />
             </label>
-            {errorEnvio && (
-              <p className={styles.validationError} style={{ marginTop: '1rem' }}>
-                {errorEnvio}
-              </p>
-            )}
             <button className={styles.submit} type="submit" >
               {enviando ? 'Enviando...' : 'Enviar postulación'}
             </button>

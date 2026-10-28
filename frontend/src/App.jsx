@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
+import ToastViewport from './components/Toast/Toast'
 import Inicio from './pages/Inicio/Inicio'
 import Nosotros from './pages/Nosotros/Nosotros'
 import Menu from './pages/Menu/Menu'
@@ -26,6 +27,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ToastViewport />
     </>
   )
 }

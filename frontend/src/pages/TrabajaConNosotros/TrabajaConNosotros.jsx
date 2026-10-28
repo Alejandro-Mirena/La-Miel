@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { notificarError, notificarExito } from '../../components/Toast/notificaciones'
 import TrabajaConfirmacion from '../Confirmaciones/TrabajaConfirmacion'
@@ -32,6 +32,14 @@ function TrabajaConNosotros() {
   })
   const [enviando, setEnviando] = useState(false)
   const [exito, setExito] = useState(false)
+  const [errorEnvio, setErrorEnvio] = useState('')
+  const errorEnvioRef = useRef(null)
+
+  useEffect(() => {
+    if (errorEnvio) {
+      errorEnvioRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }, [errorEnvio])
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -40,6 +48,7 @@ function TrabajaConNosotros() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    setErrorEnvio('')
     setEnviando(true)
 
     try {
@@ -61,6 +70,7 @@ function TrabajaConNosotros() {
       notificarExito('Postulación enviada correctamente')
       setExito(true)
     } catch (error) {
+      setErrorEnvio(error.message)
       notificarError(error.message)
     } finally {
       setEnviando(false)
@@ -182,7 +192,17 @@ function TrabajaConNosotros() {
                 onChange={handleChange}
               />
             </label>
-            <button className={styles.submit} type="submit" >
+            {errorEnvio && (
+              <p
+                ref={errorEnvioRef}
+                className={styles.validationError}
+                role="alert"
+                tabIndex={-1}
+              >
+                {errorEnvio}
+              </p>
+            )}
+            <button className={styles.submit} type="submit" disabled={enviando}>
               {enviando ? 'Enviando...' : 'Enviar postulación'}
             </button>
 

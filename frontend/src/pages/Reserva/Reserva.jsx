@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { notificarError, notificarExito } from '../../components/Toast/notificaciones'
 import ReservaConfirmacion from '../Confirmaciones/ReservaConfirmacion'
 import styles from './Reserva.module.css'
@@ -21,8 +21,10 @@ function obtenerFechaLocal() {
 function Reserva() {
   const [paso, setPaso] = useState(0)
   const [errorHorario, setErrorHorario] = useState('')
+  const [errorEnvio, setErrorEnvio] = useState('')
   const [enviando, setEnviando] = useState(false)
   const [exito, setExito] = useState(false)
+  const errorEnvioRef = useRef(null)
   const fechaMinima = obtenerFechaLocal()
   const [reserva, setReserva] = useState({
     sucursal: '',
@@ -33,6 +35,12 @@ function Reserva() {
     telefono: '',
     nota: '',
   })
+
+  useEffect(() => {
+    if (errorEnvio) {
+      errorEnvioRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }, [errorEnvio])
 
   const actualizar = (event) => {
     const { name, value } = event.target
@@ -102,6 +110,7 @@ function Reserva() {
   }
 
   const enviarReserva = async () => {
+    setErrorEnvio('')
     setEnviando(true)
 
     try {
@@ -123,6 +132,7 @@ function Reserva() {
       notificarExito('Reserva enviada correctamente')
       setExito(true)
     } catch (error) {
+      setErrorEnvio(error.message)
       notificarError(error.message)
     } finally {
       setEnviando(false)
@@ -353,6 +363,16 @@ function Reserva() {
                       </div>
                     )}
                   </dl>
+                  {errorEnvio && (
+                    <p
+                      ref={errorEnvioRef}
+                      className={styles.validationError}
+                      role="alert"
+                      tabIndex={-1}
+                    >
+                      {errorEnvio}
+                    </p>
+                  )}
                   <p className={styles.notice}>
                     Al confirmar se enviará tu solicitud directamente al equipo de La Miel.
                   </p>

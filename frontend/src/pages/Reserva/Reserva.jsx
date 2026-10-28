@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import ReservaConfirmacion from '../Confirmaciones/ReservaConfirmacion'
 import styles from './Reserva.module.css'
 
 const pasos = ['Tu visita', 'Tus datos', 'Confirma']
@@ -19,6 +21,9 @@ function obtenerFechaLocal() {
 function Reserva() {
   const [paso, setPaso] = useState(0)
   const [errorHorario, setErrorHorario] = useState('')
+  const [enviando, setEnviando] = useState(false)
+  const [exito, setExito] = useState(false)
+  const [errorEnvio, setErrorEnvio] = useState('')
   const fechaMinima = obtenerFechaLocal()
   const [reserva, setReserva] = useState({
     sucursal: '',
@@ -92,7 +97,51 @@ function Reserva() {
     setPaso((actual) => Math.min(actual + 1, pasos.length - 1))
   }
 
-  const retroceder = () => setPaso((actual) => Math.max(actual - 1, 0))
+  const retroceder = () => {
+    setErrorHorario('')
+    setErrorEnvio('')
+    setPaso((actual) => Math.max(actual - 1, 0))
+  }
+
+  const enviarReserva = async () => {
+    setErrorEnvio('')
+    setEnviando(true)
+
+    try {
+      const respuesta = await fetch('http://localhost:3000/reservas', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reserva),
+      })
+
+      const datos = await respuesta.json()
+
+      if (!respuesta.ok || !datos.success) {
+        throw new Error(datos.message || 'No se pudo enviar la reserva')
+      }
+
+      setExito(true)
+    } catch (error) {
+      setErrorEnvio(error.message)
+    } finally {
+      setEnviando(false)
+    }
+  }
+
+  if (exito) {
+    return (
+      <ReservaConfirmacion
+        nombre={reserva.nombre}
+        personas={reserva.personas}
+        fecha={reserva.fecha}
+        hora={reserva.hora}
+        sucursal={reserva.sucursal}
+        telefono={reserva.telefono}
+      />
+    )
+  }
 
   return (
     <div className={styles.page}>
@@ -305,9 +354,11 @@ function Reserva() {
                       </div>
                     )}
                   </dl>
+                  {errorEnvio && (
+                    <p className={styles.validationError}>{errorEnvio}</p>
+                  )}
                   <p className={styles.notice}>
-                    El envío de reservas estará disponible próximamente. Por ahora,
-                    esta página solo permite completar la experiencia visual.
+                    Al confirmar se enviará tu solicitud directamente al equipo de La Miel.
                   </p>
                 </div>
               )}
@@ -328,8 +379,13 @@ function Reserva() {
                     Continuar <span aria-hidden="true">→</span>
                   </button>
                 ) : (
-                  <button className={styles.nextButton} type="button" disabled>
-                    Solicitudes próximamente
+                  <button
+                    className={styles.nextButton}
+                    type="button"
+                    onClick={enviarReserva}
+                    disabled={enviando}
+                  >
+                    {enviando ? 'Enviando...' : 'Confirmar reserva'}
                   </button>
                 )}
               </div>

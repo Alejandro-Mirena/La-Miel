@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import TrabajaConfirmacion from '../Confirmaciones/TrabajaConfirmacion'
 import styles from './TrabajaConNosotros.module.css'
 
 const puestos = [
@@ -20,6 +22,54 @@ const puestos = [
 ]
 
 function TrabajaConNosotros() {
+  const [formData, setFormData] = useState({
+    nombre: '',
+    telefono: '',
+    correo: '',
+    puesto: '',
+    mensaje: '',
+  })
+  const [enviando, setEnviando] = useState(false)
+  const [exito, setExito] = useState(false)
+  const [errorEnvio, setErrorEnvio] = useState('')
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    setErrorEnvio('')
+    setEnviando(true)
+
+    try {
+      const respuesta = await fetch('http://localhost:3000/postulaciones', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const datos = await respuesta.json()
+
+      if (!respuesta.ok || !datos.success) {
+        throw new Error(datos.message || 'No se pudo enviar la postulación')
+      }
+
+      setExito(true)
+    } catch (error) {
+      setErrorEnvio(error.message)
+    } finally {
+      setEnviando(false)
+    }
+  }
+
+  if (exito) {
+    return <TrabajaConfirmacion nombre={formData.nombre} puesto={formData.puesto} />
+  }
+
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
@@ -61,7 +111,7 @@ function TrabajaConNosotros() {
               Completa el formulario y te contactamos.
             </p>
           </div>
-          <form className={styles.form}>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.grid}>
               <label className={styles.field}>
                 <span className={styles.label}>Nombre y apellido</span>
@@ -127,8 +177,13 @@ function TrabajaConNosotros() {
                 maxLength={500}
               />
             </label>
-            <button className={styles.submit} type="submit">
-              Enviar postulación
+            {errorEnvio && (
+              <p className={styles.validationError} style={{ marginTop: '1rem' }}>
+                {errorEnvio}
+              </p>
+            )}
+            <button className={styles.submit} type="submit" disabled={enviando}>
+              {enviando ? 'Enviando...' : 'Enviar postulación'}
             </button>
 
           </form>
